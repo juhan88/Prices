@@ -1,0 +1,121 @@
+
+<%= javascript_include_tag :defaults %>
+<h1 align="center">Spot Price</h1>
+<h3 align='center'>
+Click this link to show the current 
+<%= link_to "time",
+    :update => 'vbce_price', 
+    :url => {:action => "time"}, 
+	:remote => true%>.</h3>
+	
+<div id='time_div' align='center'>
+ <%= render :text => Time.now.to_s %> 
+</div>
+
+			 
+<table id='spot_price' align="center">
+  <tr>
+	<th>Date</th>
+    <th>Metals</th>
+    <th>Time</th>
+    <th>Bid</th>
+    <th>Ask</th>
+    <th>High</th>
+    <th>Low</th>
+	<th>Change</th>	
+  </tr>
+
+<% @metalResults.each do |n| %>
+  <tr align="center">
+    <td><%= n.date %></td>
+	<td><%= n.type %></td>
+	<td><%= n.time %></td>
+	<td><%= n.bid %></td>
+	<td><%= n.ask %></td>
+	<td><%= n.high %></td>
+	<td><%= n.low %></td>
+	<td><%= n.change %></td>
+  </td>		
+<%end%>
+</table>
+
+<br/>
+
+<table id='vbce_price' align="center">
+  <tr>
+	<th>Item</th>
+    <th>buyCA</th>
+    <th>Price</th>
+    <th>buyUS</th>
+    <th>sellUS</th>
+    <th>type</th>
+  </tr>
+
+<% @VBCESLVPricing.each do |n| %>
+  <tr align="center">
+    <td><%= n.item %></td>
+	<td><%= n.buyCA %></td>
+	<td><%= n.sellCA %></td>
+	<td><%= n.buyUS %></td>
+	<td><%= n.sellUS %></td>
+	<td><%= n.type %></td>
+  </td>		
+<%end%>
+
+<tr align="center">
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+ </td>		
+
+<% @VBCEGLDPricing.each do |n| %>
+  <tr align="center">
+    <td><%= n.item %></td>
+	<td><%= n.buyCA %></td>
+	<td><%= n.sellCA %></td>
+	<td><%= n.buyUS %></td>
+	<td><%= n.sellUS %></td>
+	<td><%= n.type %></td>
+  </td>		
+<%end%>
+
+<tr align="center">
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+  <td>|</td>
+ </td>		
+ 
+<% @VBCEPLTPricing.each do |n| %>
+  <tr align="center">
+    <td><%= n.item %></td>
+	<td><%= n.buyCA %></td>
+	<td><%= n.sellCA %></td>
+	<td><%= n.buyUS %></td>
+	<td><%= n.sellUS %></td>
+	<td><%= n.type %></td>
+  </td>		
+<%end%>
+</table>
+<br/>
+<table id='colonial_price' align="center">
+  <tr>	
+    <th>Item</th>
+    <th>Price</th>
+	<th>type</th>	
+  </tr>
+
+<% @ColonialSLVPricing.each do |n| %>
+  <tr align="center">
+    <td><%= n.item %></td>
+	<td><%= n.buyCA %></td>
+	<td><%= n.type %></td>
+
+  </td>		
+<%end%>
+</table>

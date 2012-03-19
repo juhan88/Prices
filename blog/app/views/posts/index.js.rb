@@ -1,0 +1,1 @@
+$("products").update("<%= escape_javascript(render(@products)) %>");
